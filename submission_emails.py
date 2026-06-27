@@ -11,7 +11,7 @@ Copy the relevant email below and send to your instructor.
 TASK_1_EMAIL = """
 Subject: Task 1 Submission – IntergalacticCargoTriager Parser – Lohith
 
-Dear [Instructor Name],
+Dear Anumolu,
 
 Please find my submission for Task 1 of the IntergalacticCargoTriager assignment.
 
@@ -50,7 +50,7 @@ Git Commits for Task 1:
 3. "feat(parser): add prime-number filter — Anomaly in CRG-002 and CRG-005 weight data discarded"
 4. "feat(parser): generate Task 1 - Lohith - Parser.json output"
 
-GitHub Repository: https://github.com/<your-username>/IntergalacticCargoTriager-Lohith
+GitHub Repository: https://github.com/Lohith2511/IntergalacticCargoTriager-Lohith
 
 Please let me know if you have any questions.
 
@@ -66,7 +66,7 @@ Lohith
 TASK_2_EMAIL = """
 Subject: Task 2 Submission – IntergalacticCargoTriager Flask API – Lohith
 
-Dear [Instructor Name],
+Dear Anumolu,
 
 Please find my submission for Task 2 of the IntergalacticCargoTriager assignment.
 
@@ -108,7 +108,7 @@ Git Commits for Task 2:
 6. "feat(backend): add X-System-Override header guard (HTTP 418)"
 7. "feat(backend): add CORS, error handlers, and requirements.txt"
 
-GitHub Repository: https://github.com/<your-username>/IntergalacticCargoTriager-Lohith
+GitHub Repository: https://github.com/Lohith2511/IntergalacticCargoTriager-Lohith
 
 Please let me know if you have any questions.
 
@@ -124,7 +124,7 @@ Lohith
 FINAL_SUBMISSION_EMAIL = """
 Subject: Final Submission – IntergalacticCargoTriager-Lohith – All Tasks Complete
 
-Dear [Instructor Name],
+Dear Anumolu,
 
 I am pleased to submit my completed IntergalacticCargoTriager assignment.
 All three tasks have been implemented as per the specification.
@@ -132,7 +132,7 @@ All three tasks have been implemented as per the specification.
 ── Project Details ────────────────────────────────────────────────────────────
 
 Project Name  : IntergalacticCargoTriager-Lohith
-GitHub        : https://github.com/<your-username>/IntergalacticCargoTriager-Lohith
+GitHub        : https://github.com/Lohith2511/IntergalacticCargoTriager-Lohith
 Tech Stack    : Python, Flask, React + Vite, Git, JSON
 
 ── Task Summary ──────────────────────────────────────────────────────────────

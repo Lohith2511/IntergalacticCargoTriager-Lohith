@@ -31,7 +31,7 @@
 # ─────────────────────────────────────────────────────
 
 git init
-git remote add origin https://github.com/<your-username>/IntergalacticCargoTriager-Lohith.git
+git remote add origin https://github.com/Lohith2511/IntergalacticCargoTriager-Lohith.git
 
 # ─────────────────────────────────────────────────────
 # STEP 2: CREATE .gitignore
