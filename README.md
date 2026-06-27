@@ -95,7 +95,8 @@ If a client issues a request containing the HTTP header:
 The API instantly flags it as an unauthorized intervention, terminates the response, and returns:
 * **HTTP Status Code:** `418 I'm a Teapot`
 * **Response Body:** `System override denied.`
-  <img width="550" height="227" alt="Task 2 - Screenshot 1 - Lohith - 418 I&#39;m a teapot png" src="https://github.com/user-attachments/assets/2638183c-53de-4f76-891d-f0d09ad2cec6" />
+
+  ## <img width="550" height="227" alt="Task 2 - Screenshot 1 - Lohith - 418 I&#39;m a teapot png" src="https://github.com/user-attachments/assets/2638183c-53de-4f76-891d-f0d09ad2cec6" />
 
 
 ---
