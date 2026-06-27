@@ -78,6 +78,7 @@ Implementation Summary:
 • File         : backend/app.py
 • Dependencies : backend/requirements.txt  (Flask==3.1.0, flask-cors==5.0.1)
 • Endpoint     : GET /api/cargo
+• Attachment   : http_418_override.png (Screenshot showing HTTP 418 I'm a Teapot response)
 
 Running the Server:
 ────────────────────
@@ -152,6 +153,7 @@ TASK 2 — Flask REST API (backend/app.py)
 • requirements.txt included
 • Exact curl command to trigger HTTP 418:
     curl -H "X-System-Override: true" http://localhost:5000/api/cargo
+• Attachment   : http_418_override.png (Screenshot showing Werkzeug HTTP 418 response)
 
 TASK 3 — React + Vite Dashboard (frontend/)
 • Fetches data from Flask backend
