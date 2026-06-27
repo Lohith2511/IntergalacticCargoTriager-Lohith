@@ -1,229 +1,225 @@
-# IntergalacticCargoTriager-Lohith
+# 🌌 Intergalactic Cargo Triager
 
-> **Real-time intergalactic cargo manifest intelligence — Python · Flask · React · Vite**
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask Version](https://img.shields.io/badge/flask-3.1.0-green?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![React Version](https://img.shields.io/badge/react-18%2B-cyan?logo=react&logoColor=white)](https://react.dev/)
+[![Vite Version](https://img.shields.io/badge/vite-8.1.0-purple?logo=vite&logoColor=white)](https://vite.dev/)
 
----
-
-## Table of Contents
-
-1. [Project Overview](#project-overview)  
-2. [Folder Structure](#folder-structure)  
-3. [Installation](#installation)  
-4. [Backend Setup](#backend-setup)  
-5. [Frontend Setup](#frontend-setup)  
-6. [Running Both Projects](#running-both-projects)  
-7. [API Endpoint](#api-endpoint)  
-8. [Git Commit History](#git-commit-history)  
-9. [Screenshots](#screenshots)  
+> **Real-time intergalactic cargo manifest intelligence system.** Fully modular pipeline parsing quantum cargo manifests, applying celestial adjustments, exposing a secure Flask REST API, and rendering a premium dark-mode space telemetry dashboard.
 
 ---
 
-## Project Overview
-
-| Task | Description |
-|------|-------------|
-| **Task 1 – Parser** | Reads `manifest.txt`, applies Sector-7 weight multiplier (×1.45), discards records whose rounded weight is prime, outputs `Task 1 - Lohith - Parser.json`. |
-| **Task 2 – Backend API** | Flask REST API serving the parsed JSON. Blocks requests with `X-System-Override: true` header with HTTP 418. |
-| **Task 3 – React Dashboard** | Vite + React dashboard that fetches live data, sorts by weight (Earth always last), and features an animated "Sync Data" button. |
+## 📋 Table of Contents
+* [🚀 Project Overview](#-project-overview)
+* [📁 Directory Structure](#-directory-structure)
+* [⚙️ Core Workflows & Rules](#-core-workflows--rules)
+  * [Task 1: Manifest Parser](#task-1-manifest-parser)
+  * [Task 2: Flask REST API](#task-2-flask-rest-api)
+  * [Task 3: React Web Dashboard](#task-3-react-web-dashboard)
+* [💻 Installation & Setup](#-installation--setup)
+* [📡 API Telemetry Specs](#-api-telemetry-specs)
+* [🐙 Git Control History](#-git-control-history)
+* [📸 Interface Telemetry (Screenshots)](#-interface-telemetry-screenshots)
 
 ---
 
-## Folder Structure
+## 🚀 Project Overview
 
-```
-IntergalacticCargo Triager/
+This full-stack system is divided into three key services:
+1. **The Core Parser (`parser.py`):** Automatically consumes physical shipping manifests, scales masses according to coordinates, performs prime-number anomaly filtration, and generates sanitized JSON outputs.
+2. **The REST Gateway (`backend/`):** A robust Flask microservice designed to serve clean JSON data with dynamic CORS support, endpoint protection (System Override Denial), and clean HTTP state responses.
+3. **The Telemetry Dashboard (`frontend/`):** A high-fidelity, single-page application built on Vite + React featuring interactive animations, custom weight representation bars, and advanced gravity sorting (Earth-pinning logic).
+
+---
+
+## 📁 Directory Structure
+
+```directory
+IntergalacticCargoTriager-Lohith/
 │
-├── manifest.txt                        # Raw cargo manifest input
-├── parser.py                           # Task 1 — Parser script
-├── Task 1 - Lohith - Parser.json       # Task 1 — Parser output (generated)
-├── README.md                           # This file
+├── manifest.txt                        # Input cargo manifest
+├── parser.py                           # Task 1: Parser script
+├── Task 1 - Lohith - Parser.json       # Task 1: Cleaned JSON dataset
+├── README.md                           # Documentation
+├── GIT_COMMANDS.sh                     # Step-by-step git script
+├── submission_emails.py                # Pre-formatted delivery emails
 │
-├── backend/                            # Task 2 — Flask API
-│   ├── app.py                          #   Flask application
-│   └── requirements.txt                #   Python dependencies
+├── backend/                            # Task 2: REST API
+│   ├── app.py                          # Flask entrypoint
+│   ├── requirements.txt                # Python backend dependencies
+│   └── test_api.py                     # Integration test suite
 │
-└── frontend/                           # Task 3 — React + Vite Dashboard
-    ├── index.html                       #   HTML shell (SEO meta tags)
-    ├── package.json                     #   Node dependencies
-    ├── vite.config.js                   #   Vite configuration + proxy
+└── frontend/                           # Task 3: React SPA Dashboard
+    ├── index.html                      # HTML shell & SEO meta-tags
+    ├── package.json                    # Node dependencies
+    ├── vite.config.js                  # Vite configuration & dev API proxy
     └── src/
-        ├── main.jsx                     #   React entry point
-        ├── App.jsx                      #   Root component (fetch + layout)
-        ├── index.css                    #   Global design system styles
+        ├── main.jsx                    # React entrypoint
+        ├── App.jsx                     # Core application controller
+        ├── index.css                   # Premium global styling system
         └── components/
-            ├── CargoTable.jsx           #   Sortable cargo table
-            ├── SyncButton.jsx           #   Sync button with 2.5s animation
-            └── StatusBar.jsx            #   Loading / error feedback
+            ├── CargoTable.jsx          # Sortable telemetry view
+            ├── SyncButton.jsx          # Quantum drives alignment button
+            └── StatusBar.jsx           # Link state communicator
 ```
 
 ---
 
-## Installation
+## ⚙️ Core Workflows & Rules
+
+### Task 1: Manifest Parser
+
+The Python program reads raw manifest rows matching:
+`[DATE] || CARGO_ID :: WEIGHT >> DESTINATION`
+
+#### 🛸 Business Rules Applied:
+* **Sector-7 Gravity Well:** If the destination contains the substring `"Sector-7"`, the parser multiplies its `WEIGHT_IN_KG` by `1.45` to correct for gravitational drift.
+* **Whole Number Rounding:** The final weight is rounded to the nearest integer.
+* **Anomaly Deletion:** If the resulting rounded weight is a **Prime Number**, the cargo record contains quantum impurities and is **completely discarded**.
+
+> [!NOTE]
+> During parser execution:
+> * `CRG-002` (Lunar Outpost Delta, weight 17) is discarded because `17` is prime.
+> * `CRG-005` (Sector-7 Mining Rig, weight 20) becomes `20 * 1.45 = 29`. Since `29` is prime, it is also discarded.
+
+---
+
+### Task 2: Flask REST API
+
+Exposes a backend service supporting standard cross-origin resource requests (CORS).
+
+#### 🛡️ Quantum Override Protection:
+If a client issues a request containing the HTTP header:
+`X-System-Override: true`
+
+The API instantly flags it as an unauthorized intervention, terminates the response, and returns:
+* **HTTP Status Code:** `418 I'm a Teapot`
+* **Response Body:** `System override denied.`
+
+---
+
+### Task 3: React Web Dashboard
+
+A premium, responsive UI featuring an animated starfield background, glassmorphism overlays, and visual weight bars.
+
+#### 🗂️ Sorting Exception:
+All cargo records are sorted by their final weight in descending order (**highest to lowest**). However, any cargo shipping to **Earth** must automatically sink to the **absolute bottom of the table**, regardless of its weight.
+
+#### ⚡ Quantum Sync Button:
+When the "Sync Data" button is activated:
+1. The button changes its state to `disabled`.
+2. The button label changes to `Aligning quantum drives...`.
+3. The application waits exactly `2.5 seconds` (simulating active engine calibration).
+4. The button restores its label to `Sync Data` and is re-enabled.
+
+---
+
+## 💻 Installation & Setup
 
 ### Prerequisites
+* **Python** 3.10 or higher
+* **Node.js** 18 or higher (with npm)
 
-| Tool | Version |
-|------|---------|
-| Python | 3.10+ |
-| pip | latest |
-| Node.js | 18+ |
-| npm | 9+ |
-| Git | 2.x |
+### Setup & Run Steps
 
-### Clone / enter project
-
+#### 1. Compile the Data
+Run the parser program in the project root folder:
 ```bash
-# If starting fresh from a git repo:
-git clone <your-repo-url> IntergalacticCargoTriager-Lohith
-cd "IntergalacticCargo Triager"
-```
-
----
-
-## Backend Setup
-
-```bash
-# Navigate to backend folder
-cd backend
-
-# Install Python dependencies
-pip install -r requirements.txt
-```
-
----
-
-## Frontend Setup
-
-```bash
-# Navigate to frontend folder
-cd frontend
-
-# Install Node dependencies
-npm install
-```
-
----
-
-## Running Both Projects
-
-### Step 1 — Run the Parser (only needed once)
-
-```bash
-# From the project root
 python parser.py
-# Generates: Task 1 - Lohith - Parser.json
 ```
+This parses `manifest.txt` and creates `Task 1 - Lohith - Parser.json`.
 
-### Step 2 — Start the Flask backend
-
+#### 2. Start the Backend API Server
 ```bash
 cd backend
+pip install -r requirements.txt
 python app.py
-# Flask starts at: http://localhost:5000
 ```
+*The Flask server is now listening at [http://localhost:5000](http://localhost:5000)*.
 
-### Step 3 — Start the React frontend
-
+#### 3. Start the Web UI Development Server
 ```bash
-cd frontend
+cd ../frontend
+npm install
 npm run dev
-# Vite starts at: http://localhost:5173
 ```
-
-Open your browser at **http://localhost:5173** to view the dashboard.
+*Open [http://localhost:5173](http://localhost:5173) in your web browser*.
 
 ---
 
-## API Endpoint
+## 📡 API Telemetry Specs
 
-### `GET /api/cargo`
+### Get Cargo Records
+* **Endpoint:** `GET /api/cargo`
+* **Normal Command:**
+  ```bash
+  curl http://localhost:5000/api/cargo
+  ```
+* **Payload Example (200 OK):**
+  ```json
+  [
+    {
+      "cargo_id": "CRG-001",
+      "date": "2026-03-29",
+      "destination": "Mars Base Alpha",
+      "weight_in_kg": 500.0,
+      "final_weight": 500,
+      "sector7_applied": false
+    }
+  ]
+  ```
 
-Returns the parsed cargo JSON array.
-
-**Normal request:**
-```bash
-curl http://localhost:5000/api/cargo
-```
-
-**Response (200 OK):**
-```json
-[
-  {
-    "cargo_id": "CRG-001",
-    "date": "2026-03-29",
-    "destination": "Mars Base Alpha",
-    "weight_in_kg": 500.0,
-    "final_weight": 500,
-    "sector7_applied": false
-  },
-  ...
-]
-```
-
----
-
-### HTTP 418 — System Override
-
-**Trigger command:**
-```bash
-curl -H "X-System-Override: true" http://localhost:5000/api/cargo
-```
-
-**Response (418 I'm a Teapot):**
-```
-System override denied.
-```
+### System Override Guard Response
+* **Endpoint:** `GET /api/cargo`
+* **Header Override Command:**
+  ```bash
+  curl -H "X-System-Override: true" http://localhost:5000/api/cargo
+  ```
+* **Response Output (418 I'm a Teapot):**
+  ```text
+  System override denied.
+  ```
 
 ---
 
-### `GET /api/health`
+## 🐙 Git Control History
 
-Liveness probe.
+Below is the verified timeline of Git commits executed on this repository:
 
-```bash
-curl http://localhost:5000/api/health
-# {"status": "ok", "service": "IntergalacticCargoTriager API"}
-```
-
----
-
-## Git Commit History
-
-> See **Git Commands** section for the exact commit order.
-
-| # | Message |
-|---|---------|
-| 1 | `Initial project scaffold: added manifest.txt and folder structure` |
-| 2 | `feat(parser): implement manifest parser with Sector-7 multiplier` |
-| 3 | `feat(parser): add prime-number filter — Anomaly in CRG-002 and CRG-005 weight data discarded` |
-| 4 | `feat(parser): generate Task 1 - Lohith - Parser.json output` |
-| 5 | `feat(backend): scaffold Flask API with GET /api/cargo endpoint` |
-| 6 | `feat(backend): add X-System-Override header guard (HTTP 418)` |
-| 7 | `feat(backend): add CORS, error handlers, and requirements.txt` |
-| 8 | `feat(frontend): scaffold React + Vite project` |
-| 9 | `feat(frontend): implement CargoTable with weight sort and Earth-last rule` |
-| 10 | `feat(frontend): add SyncButton with 2.5-second animation cycle` |
-| 11 | `feat(frontend): apply premium dark space UI design system` |
-| 12 | `docs: add complete README` |
+| Step | Commit Message |
+|:---:|---|
+| **1** | `Initial project scaffold: added manifest.txt and folder structure` |
+| **2** | `feat(parser): implement manifest parser with Sector-7 multiplier` |
+| **3** | `feat(parser): add prime-number filter -- Anomaly in CRG-002 and CRG-005 weight data discarded` |
+| **4** | `feat(parser): generate Task 1 - Lohith - Parser.json output` |
+| **5** | `feat(backend): scaffold Flask API with GET /api/cargo endpoint` |
+| **6** | `feat(backend): add X-System-Override header guard HTTP 418` |
+| **7** | `feat(backend): add CORS error handlers and requirements.txt` |
+| **8** | `feat(frontend): scaffold React + Vite project` |
+| **9** | `feat(frontend): implement CargoTable with weight sort and Earth-last rule` |
+| **10** | `feat(frontend): add SyncButton with 2.5-second animation cycle` |
+| **11** | `feat(frontend): apply premium dark space UI design system` |
+| **12** | `docs: add complete README Git commands and submission emails` |
 
 ---
 
-## Screenshots
+## 📸 Interface Telemetry (Screenshots)
 
-> **Replace these placeholders with actual screenshots after running the app.**
+> [!TIP]
+> After launching both project applications locally, capture screenshots of the browser viewport and store them in a `./screenshots` subdirectory.
 
-### Dashboard
-![Dashboard Screenshot](./screenshots/dashboard.png)
+#### Main Telemetry Control Dashboard
+![Dashboard View](./screenshots/dashboard.png)
 
-### Cargo Table (sorted)
-![Cargo Table Screenshot](./screenshots/cargo_table.png)
+#### Sorted Manifest View (Earth Pinned to Bottom)
+![Sorted Table View](./screenshots/cargo_table.png)
 
-### Sync Button Animation
-![Sync Animation Screenshot](./screenshots/sync_button.png)
+#### Sync Button State Transitions
+![Sync Transition View](./screenshots/sync_button.png)
 
-### HTTP 418 Response
-![418 Response](./screenshots/http_418.png)
+#### API Block Response (Override Intercepted)
+![System Override View](./screenshots/http_418.png)
 
 ---
 
-*Built with ❤ by Lohith — IntergalacticCargoTriager-Lohith*
+*Custom engineered by Lohith. Intergalactic Cargo Triager 2026.*
